@@ -17,6 +17,7 @@ public class AgendaGUI extends JFrame {
 
         // Configurar la ventana principal
         setTitle("Agenda Telefónica");
+        setIconImage(new ImageIcon(getClass().getResource("/resource/imagen.png")).getImage());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 550);
         setLocationRelativeTo(null);
@@ -72,6 +73,7 @@ public class AgendaGUI extends JFrame {
         JPanel panelSuperior = new JPanel(new GridBagLayout());
         panelSuperior.setBorder(BorderFactory.createTitledBorder("Gestión de Contactos"));
         panelSuperior.setPreferredSize(new Dimension(780, 150));
+        panelSuperior.setBackground(new Color(200, 230, 255));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -144,7 +146,11 @@ public class AgendaGUI extends JFrame {
 
         tablaContactos = new JTable(modeloTabla);
         tablaContactos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tablaContactos.setOpaque(false);
         JScrollPane scrollPane = new JScrollPane(tablaContactos);
+
+
+        scrollPane.getViewport().setBackground(new Color(245, 255, 245));
 
         // Agregar listener para doble click
         tablaContactos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,6 +172,7 @@ public class AgendaGUI extends JFrame {
     private void crearPanelInferior() {
         JPanel panelInferior = new JPanel(new BorderLayout(10, 10));
         panelInferior.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        panelInferior.setBackground(new Color(255, 240, 200));
 
         // Label de estado
         lblEstado = new JLabel();
